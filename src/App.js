@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends React.Component {
@@ -10,14 +9,30 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    fetch("http://127.0.0.1:8000/api/shoe/")
+      .then((res) => res.json())
+      .then((data) => this.setState({ shoes: data }));
+  }
+
   render() {
     return (
       <div>
-        <ul>
-          {this.state.shoes.map((s) => (
-            <li>{s.name}</li>
-          ))}
-        </ul>
+        <h1>Shoes</h1>
+        {this.state.shoes.map((s) => (
+          <div key={s.id}>
+            <ul>
+              <li>Size: {s.size}</li>
+              <li>Brand Name: {s.brand_name}</li>
+              <li>Manufacturer: {s.manufacturer}</li>
+              <li>Color: {s.color}</li>
+              <li>Material: {s.material}</li>
+              <li>Type: {s.shoe_type}</li>
+              <li>Fasten Type: {s.fasten_type}</li>
+              <br />
+            </ul>
+          </div>
+        ))}
       </div>
     );
   }
