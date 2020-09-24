@@ -24,10 +24,16 @@ class App extends React.Component {
             <ul>
               <li>Size: {s.size}</li>
               <li>Brand Name: {s.brand_name}</li>
-              <li>Manufacturer: {s.manufacturer}</li>
-              <li>Color: {s.color}</li>
+              <li>
+                Manufacturer: <a href={s.manufacturer}>{s.manufacturer}</a>
+              </li>
+              <li>
+                Color: <a href={s.color}>{s.color}</a>
+              </li>
               <li>Material: {s.material}</li>
-              <li>Type: {s.shoe_type}</li>
+              <li>
+                Type: <a href={s.shoe_type}>{s.shoe_type}</a>
+              </li>
               <li>Fasten Type: {s.fasten_type}</li>
               <br />
             </ul>
